@@ -15,10 +15,14 @@ class NotesController < ApplicationController
     redirect_to notes_path
   end
 
+  def edit
+    @note = Note.find(params[:id])
+  end
+  
   private
 
   def note_params
     params.require(:note).permit(:name, :content)
   end
-  
+
 end
